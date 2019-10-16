@@ -1,0 +1,84 @@
+ @keyframes tot_color {
+ 	0%{color:#060869;}
+ 	25%{color:#57096b;}
+ 	50%{color:#8a0751;}
+ 	75%{color:#8a3007;}
+ 	100%{color:#073e8a;}
+}
+
+@keyframes li_color {
+	0%{color:#bf0046;}
+	25%{color:#af00bf;}
+	50%{color:#bf4600;}
+	75%{color:#00bf86;}
+	100%{color:#3900bf;}
+}
+
+
+ @font-face
+{
+	font-family:'term';
+	src:url('../res/terminal.ttf');
+}
+
+body {
+	text-align: center;
+	background-image: url("../res/bg.png");
+	font-family: term;
+	/*background-color: gray;*/
+}
+
+table {
+	margin-left:auto; 
+    margin-right:auto;
+    width: 50%;
+    border:none;
+    border-width: 5px;
+    border-radius: 10px;
+}
+th {
+	border:solid;
+	border-radius: 3px;
+	font-size: 125%;
+	color:#160778;
+}
+td.z {
+	border: none;
+	border-width: 2px;
+	border-radius: 5px;
+	background-color: #ffffff;
+}
+td.y {
+	border: solid;
+	border-width: 2px;
+	border-radius: 5px;
+	background-color: #dddddd;
+}
+
+
+#tot {
+	font-size: 200%;
+}
+#money {
+	animation-name: tot_color;
+	animation-iteration-count: infinite;
+	animation-duration: 2s;
+	animation-timing-function: linear;
+	animation-direction: alternate;
+}
+
+#table_title {
+	font-size: 200%;
+}
+
+#login {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	font-size: 200%;
+	animation-name: li_color;
+	animation-iteration-count: infinite;
+	animation-duration: 5s;
+	animation-timing-function: linear;
+	animation-direction: alternate;
+}

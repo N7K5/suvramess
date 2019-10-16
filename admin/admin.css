@@ -1,0 +1,178 @@
+ @keyframes tot_color {
+ 	0%{color:#060869;}
+ 	25%{color:#57096b;}
+ 	50%{color:#8a0751;}
+ 	75%{color:#8a3007;}
+ 	100%{color:#073e8a;}
+}
+
+@keyframes li_color {
+	0%{color:#bf0046;}
+	25%{color:#af00bf;}
+	50%{color:#bf4600;}
+	75%{color:#00bf86;}
+	100%{color:#3900bf;}
+}
+
+@keyframes notify {
+	0%{top:30px;}
+	80% {top: 30px;}
+	100%{ top: -100px; };
+}
+
+
+ @font-face
+{
+	font-family:'term';
+	src:url('../res/terminal.ttf');
+}
+
+body {
+	text-align: center;
+	background-image: url("../res/bg.png");
+	font-family: term;
+	/*background-color: gray;*/
+}
+
+.login {
+	/*background-color: #4CAF50;*/
+	padding: 12px 20px;
+	margin: 20px;
+	border: solid;
+	border-radius: 10px;
+	cursor: pointer;
+	font-size: 200%;
+	color:black;
+	/*float: right;*/
+} 
+
+.login:active {
+	border-color: green;
+}
+
+
+
+.button {
+  display: inline-block;
+  padding: 15px 45px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #107d33;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #0b6327}
+
+.button:active {
+  background-color: #094f1f;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button_r {
+  display: inline-block;
+  padding: 5px 9px;
+  font-size: 80%;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #c9184d;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 5px #999;
+}
+
+.button_r:hover {background-color: #910d35}
+
+.button_r:active {
+  background-color: #700c2b;
+  box-shadow: 0 2px #666;
+  transform: translateY(3px);
+}
+
+.button_rem {
+	color: #c9184d;
+}
+
+
+table {
+	margin-left:auto; 
+    margin-right:auto;
+    width: 50%;
+    border:none;
+    border-width: 5px;
+    border-radius: 10px;
+}
+th {
+	border:solid;
+	border-radius: 3px;
+	font-size: 125%;
+	color:#160778;
+}
+td.z {
+	border: none;
+	border-width: 2px;
+	border-radius: 5px;
+	background-color: #ffffff;
+	padding: 5px;
+}
+td.y {
+	border: solid;
+	border-width: 2px;
+	border-radius: 5px;
+	background-color: #dddddd;
+	padding: 5px;
+}
+
+#logout {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	font-size: 200%;
+	animation-name: li_color;
+	animation-iteration-count: infinite;
+	animation-duration: 5s;
+	animation-timing-function: linear;
+	animation-direction: alternate;
+}
+
+
+#insert {
+	position: fixed;
+	bottom: 0px;
+	background-color: #ddd;
+	width:100%;
+	padding: 20px;
+}
+
+.ins {
+	padding: 10px;
+	margin: 10px;
+	font-size: 120%;
+	border-color: #0b0d59;
+	border-radius: 5px;
+}
+
+#noti {
+	padding: 20px 60px;
+	position: fixed;
+	left: 40%;
+	top: -100px;
+	background-color: #ff1979;
+	border-color: black;
+	border-width: 5px;
+	border-radius: 15px;
+	animation-name: notify;
+	animation-duration: 4s;
+	animation-iteration-count: 1;
+	opacity: .8;
+
+}
