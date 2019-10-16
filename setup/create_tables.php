@@ -45,6 +45,20 @@
 		echo "<br />Error creating DB expenditure <br /><br />";
 	}
 
+	$varsql= ' CREATE TABLE mealcount (
+		id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+		date_ TEXT NOT NULL,
+		user_name varchar(32),
+		dorn varchar(1),
+		FOREIGN KEY (user_name) REFERENCES users(name)
+	)DEFAULT CHARACTER SET utf8 ENGINE=InnoDB';
+
+	try {
+		$pdo->exec($varsql);
+	} catch(Excepton $e) {
+		echo "<br />Error creating DB mealcount <br /><br />";
+	}
+
 
 
 	

@@ -59,6 +59,11 @@ td.y {
 #tot {
 	font-size: 200%;
 }
+
+#permeal {
+	position: relative;
+	font-size: 150%;
+}
 #money {
 	animation-name: tot_color;
 	animation-iteration-count: infinite;

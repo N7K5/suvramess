@@ -37,9 +37,50 @@ ADDED BY YOU-
 	}
 ?>
 </table>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+<br /><br /><br />
+
+Meal count
+
+<table>
+	<tr>
+		<th> Date </th>
+		<th> Name </th>
+		<th> time </th>
+		<th> action </th>
+	</tr>
+
+<?php
+
+	$varsql= 'SELECT * FROM mealcount';
+
+	$res_all= $pdo->query($varsql);
+	$count= 1;
+	while($res_arr= $res_all->fetch()) {
+		if($count==1) {
+			echo '<tr class="z">';
+			echo '<td class="z">'.$res_arr["date_"].'</th>';
+			echo '<td class="z">'.$res_arr["user_name"].'</th>';
+			echo '<td class="z">'.$res_arr["dorn"].'</th>';
+			echo '<td class="z"><a class="button_rem" href="index.php?remove_m='.$res_arr["id"].'">Remove</a></th>';
+			echo '</tr>';
+		} else {
+			echo '<tr class="y">';
+			echo '<td class="y">'.$res_arr["date_"].'</th>';
+			echo '<td class="y">'.$res_arr["user_name"].'</th>';
+			echo '<td class="y">'.$res_arr["dorn"].'</th>';
+			echo '<td class="y"><a class="button_rem" href="index.php?remove_m='.$res_arr["id"].'">Remove</a></th>';
+			echo '</tr>';
+		}
+		$count= 1-$count;
+
+	}
+?>
+</table>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<div id="form_container">
 <div id= "insert">
-Insert new Data
+Insert new expenditure
 
 <form action="index.php" method="post">
 
@@ -67,6 +108,39 @@ Insert new Data
 </form>
 </div>
 
+
+<div id="meal_insert">
+	Add new Meal
+	<form action="index.php" method="post">
+		<input type="text" class="ins" id="date_form2" name="date2" placeholder="Date*" autocomplete="off" required="required">
+
+	<select required name="user2" class="ins">
+		<option selected="true" disabled="disabled">Eaten by</option>
+		<?php
+
+			$varsql= 'SELECT name FROM users';
+
+			$res_all= $pdo->query($varsql);
+			while($res_arr= $res_all->fetch()) {
+				echo '<option value="';
+				echo $res_arr['name'];
+				echo '"> '.$res_arr['name'].'</option>';
+			}
+	?>
+
+		</select><br />
+		<select required name="dorn" class="ins">
+			<option selected="true" disabled="disabled">day/night</option>
+			<option value="d">Day</option>
+			<option value="n">Night</option>
+		</select> <br />
+		<input type="text" class="ins" placeholder="comment" >
+		<input type="submit"  class="button" value="go">
+</form>
+</div>
+</div>
+
+
 <script type="text/javascript">
 
 	let chng2digit= (num) => {
@@ -76,7 +150,9 @@ Insert new Data
 
 
 	let dateF= document.getElementById("date_form");
+	let dateF2= document.getElementById("date_form2");
 	let d= new Date();
 	dateF.value=chng2digit(d.getDate())+"/"+chng2digit(d.getMonth());
+	dateF2.value=chng2digit(d.getDate())+"/"+chng2digit(d.getMonth());
 
 </script>

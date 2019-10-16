@@ -78,6 +78,21 @@
 	?>
 
 	<?php
+		if(isset($_GET['remove_m']) && isset($_SESSION['user'])) {
+			$varsql= 'DELETE FROM mealcount where id="'.$_GET['remove_m'].'"';
+			try {
+				$pdo->exec($varsql);
+				echo "<a id='noti'>Removed successfully</a>";
+			} catch(Excepton $e) {
+				echo "error Deleting";
+				session_destroy();
+				exit();
+			}
+		}
+
+	?>
+
+	<?php
 		if(isset($_POST['date']) && strlen($_POST['date'])>0 &&
 			isset($_POST['user']) && strlen($_POST['user'])>0 &&
 			isset($_POST['price']) && strlen($_POST['price'])>0) {
@@ -100,6 +115,26 @@
 		}
 
 	?>
+
+	<?php
+		if(isset($_POST['date2']) && strlen($_POST['date2'])>0 &&
+			isset($_POST['user2']) && strlen($_POST['user2'])>0 &&
+			isset($_POST['dorn']) && strlen($_POST['dorn'])>0) {
+
+			$varsql= 'INSERT INTO mealcount (date_, user_name, dorn) VALUES ("'.$_POST['date2'].'", "'.$_POST['user2'].'", "'.$_POST['dorn'].'")';
+		try{
+				$pdo->exec($varsql);
+				echo "<a id='noti'>added successfully</a>";
+			} catch(Excepton $e) {
+				echo "error inserting";
+				session_destroy();
+				exit();
+			}
+
+		}
+
+
+	?>
 	
 	<?php
 		if(isset($_SESSION['user'])) {
@@ -109,6 +144,7 @@
 			include "login_form.php";
 		}
 	?>
+	<a href="../index.php" id="home">HOME </a>
 	
 </body>
 </html>

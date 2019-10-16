@@ -25,6 +25,14 @@
 	} catch(Excepton $e) {
 		echo "<br />Error droping DB expenditure <br /><br />";
 	}
+
+	$varsql= 'DROP TABLE mealcount';
+
+	try {
+		$pdo->exec($varsql);
+	} catch(Excepton $e) {
+		echo "<br />Error droping DB mealcount <br /><br />";
+	}
 	
 	$varsql= 'DROP TABLE users';
 
