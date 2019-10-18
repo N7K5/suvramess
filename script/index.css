@@ -87,3 +87,21 @@ td.y {
 	animation-timing-function: linear;
 	animation-direction: alternate;
 }
+
+.z .less {
+	background-color: #ff7da0;
+	
+}
+
+.y .less {
+	background-color: #ff7da0;
+	
+}
+
+.z .grater {
+	background-color: #7dff97;
+}
+
+.y .grater {
+	background-color: #7dff97;
+}

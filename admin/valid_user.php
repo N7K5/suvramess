@@ -61,14 +61,14 @@ Meal count
 			echo '<tr class="z">';
 			echo '<td class="z">'.$res_arr["date_"].'</th>';
 			echo '<td class="z">'.$res_arr["user_name"].'</th>';
-			echo '<td class="z">'.$res_arr["dorn"].'</th>';
+			if($res_arr["dorn"]=="D") echo '<td class="z day">Day</th>'; else echo '<td class="z night">Night</th>';
 			echo '<td class="z"><a class="button_rem" href="index.php?remove_m='.$res_arr["id"].'">Remove</a></th>';
 			echo '</tr>';
 		} else {
 			echo '<tr class="y">';
 			echo '<td class="y">'.$res_arr["date_"].'</th>';
 			echo '<td class="y">'.$res_arr["user_name"].'</th>';
-			echo '<td class="y">'.$res_arr["dorn"].'</th>';
+			if($res_arr["dorn"]=="D") echo '<td class="y day">Day</th>'; else echo '<td class="y night">Night</th>';
 			echo '<td class="y"><a class="button_rem" href="index.php?remove_m='.$res_arr["id"].'">Remove</a></th>';
 			echo '</tr>';
 		}
@@ -131,8 +131,8 @@ Insert new expenditure
 		</select><br />
 		<select required name="dorn" class="ins">
 			<option selected="true" disabled="disabled">day/night</option>
-			<option value="d">Day</option>
-			<option value="n">Night</option>
+			<option value="D">Day</option>
+			<option value="N">Night</option>
 		</select> <br />
 		<input type="text" class="ins" placeholder="comment" >
 		<input type="submit"  class="button" value="go">

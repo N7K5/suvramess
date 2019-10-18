@@ -52,7 +52,8 @@
 			$varsql= 'SELECT COUNT(id) AS id FROM mealcount';
 			try {
 				$res_arr= $pdo->query($varsql)->fetch();
-				echo intval($total/$res_arr['id']);
+				$per_meal_cost= $total/$res_arr['id'];
+				echo number_format((float)$per_meal_cost, 2, '.', '');
 			} catch(Excepton $e) {
 				echo "error no SUM...";
 				exit();
@@ -65,8 +66,9 @@
 		<table>
 			<tr>
 				<th> User </th>
-				<th> Meal </th>
-				<th> Deposit </th>
+				<th title="Total no of meal eaten by individual" style="cursor: help"> Meal </th>
+				<th title="Total meal charge of individual" style="cursor: help"> Total </th>
+				<th title="Total ammount deposited by individual" style="cursor: help"> Deposit </th>
 			</tr>
 			<?php
 
@@ -80,8 +82,16 @@
 						echo '<td class="z">'.$res_arr["user_name"].'</td>';
 						$varsql= 'SELECT COUNT(id) as co FROM mealcount WHERE user_name="'.$res_arr["user_name"].'"';
 						$count_res=$pdo->query($varsql)->fetch();
-						echo '<td class="z">'.$count_res["co"].'</td>';
-						echo '<td class="z">'.$res_arr["total"].' ₹ </td>';
+						echo '<td class="z" >'.$count_res["co"].'</td>';
+
+						$total_cost= $per_meal_cost*$count_res["co"];
+						echo '<td class="z" title="Meal charge for '.$count_res["co"].' meals" style="cursor: help">'.number_format((float)$total_cost, 2, '.', '').' ₹</td>';
+
+						if($total_cost<$res_arr["total"]) {
+							echo '<td class="z grater">'.$res_arr["total"].' ₹ </td>';
+						} else {
+							echo '<td class="z less">'.$res_arr["total"].' ₹ </td>';
+						}
 						echo '</tr>';
 					} else {
 						echo '<tr class="y">';
@@ -89,7 +99,15 @@
 						$varsql= 'SELECT COUNT(id) as co FROM mealcount WHERE user_name="'.$res_arr["user_name"].'"';
 						$count_res=$pdo->query($varsql)->fetch();
 						echo '<td class="y">'.$count_res["co"].'</td>';
-						echo '<td class="y">'.$res_arr["total"].' ₹ </td>';
+						
+						$total_cost= $per_meal_cost*$count_res["co"];
+						echo '<td class="y" title="Meal charge for '.$count_res["co"].' meals" style="cursor: help">'.number_format((float)$total_cost, 2, '.', '').' ₹</td>';
+
+						if($total_cost<$res_arr["total"]) {
+							echo '<td class="y grater">'.$res_arr["total"].' ₹ </td>';
+						} else {
+							echo '<td class="y less">'.$res_arr["total"].' ₹ </td>';
+						}
 						echo '</tr>';
 					}
 					$current_col= 1-$current_col;
