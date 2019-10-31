@@ -178,11 +178,17 @@
 
 	let showOnly= (name) => {
 		oldTbl.style.display="none";
-		newTbl.innerHTML= "<tr><th>Date</th><th>Baught by</th><th>Items</th><th>Price</th></tr>";
 		let rowLength= oldTbl.rows.length;
 		let counter= -1;
 		let tblClass= "z";
 		let innerStr= "";
+
+		if(name == "everyone" || name == "Everyone") {
+			newTbl.innerHTML= "<tr><th>Date</th><th>Baught by</th><th>Items</th><th>Price</th></tr>";
+		} else {
+			newTbl.innerHTML= "<tr><th>Date</th><th>Items</th><th>Price</th></tr>";
+		}
+
 		for(let i=1; i<rowLength; i++) {
 			innerStr= "";
 			let cellArray= oldTbl.rows.item(i).cells;
@@ -202,7 +208,8 @@
 					(++counter%2==0)?tblClass="z":tblClass="y";
 					// innerStr+='<tr class="'+tblClass+'">';
 					for(let j=0; j<cellLength; j++) {
-						innerStr+='<td class="'+tblClass+'">'+cellArray.item(j).innerText+'</td>';
+						if(j!= 1)
+							innerStr+='<td class="'+tblClass+'">'+cellArray.item(j).innerText+'</td>';
 					}
 					// innerStr+='</tr>';
 				}
