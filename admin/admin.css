@@ -173,6 +173,7 @@ td.y {
 	background-color: #ddd;
 	width:45%;
 	padding: 20px;
+	z-index: 10000000;
 }
 
 #form_container {
@@ -201,4 +202,32 @@ td.y {
 	animation-iteration-count: 1;
 	opacity: .8;
 
+}
+
+.z .day {
+    background-color:#fff29e;
+    border-width: 1px;
+    border:solid;
+}
+
+.z .night {
+    background-color:#151c4a;
+    color:#f1deff;
+    border-color:#ffffff;
+    border-width: 1px;
+    border:solid;
+}
+
+.y .day {
+    background-color:#fff29e;
+    border-width: 1px;
+    border:solid;
+}
+
+.y .night {
+    background-color:#151c4a;
+    color:#f1deff;
+    border-color:#ffffff;
+    border-width: 1px;
+    border:solid;
 }

@@ -105,3 +105,17 @@ td.y {
 .y .grater {
 	background-color: #7dff97;
 }
+
+#whos_rec {
+	padding: 5px;
+	font-size: 80%;
+	font-family: term;
+	/*border: block;*/
+	border-radius: 0px 0px 12px 12px;
+}
+
+#whos_rec:active {
+	border-color: #117504;
+	/*border-width: 5px;*/
+	font-size: 80%;
+}

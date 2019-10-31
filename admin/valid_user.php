@@ -116,6 +116,7 @@ Insert new expenditure
 
 	<select required name="user2" class="ins">
 		<option selected="true" disabled="disabled">Eaten by</option>
+		<option value="everyone" class="everyone"> Everyone </option>
 		<?php
 
 			$varsql= 'SELECT name FROM users';
