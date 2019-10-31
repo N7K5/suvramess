@@ -124,7 +124,7 @@
 				$varsql= "SELECT name FROM users";
 				$res_all= $pdo->query($varsql);
 				while($res_arr= $res_all->fetch()) {
-					echo ' <option id="'.$res_arr['name'].'">'.$res_arr['name']."'s".'</option>';
+					echo ' <option value="'.$res_arr['name'].'">'.$res_arr['name']."'s".'</option>';
 				}
 			?>
 			</select>
@@ -187,12 +187,12 @@
 			innerStr= "";
 			let cellArray= oldTbl.rows.item(i).cells;
 			let cellLength= cellArray.length;
-			if(name == "everyone" || name == "Everyone" || name == "Everyo" || name == "everyo") {
+			if(name == "everyone" || name == "Everyone") {
 				// console.log(name);
 				(++counter%2==0)?tblClass="z":tblClass="y";
 				// innerStr+='<tr class="'+tblClass+'">';
 				for(let j=0; j<cellLength; j++) {
-					console.log(cellArray.item(j).innerText);
+					// console.log(cellArray.item(j).innerText);
 					innerStr+='<td class="'+tblClass+'">'+cellArray.item(j).innerText+'</td>';
 				}
 				// innerStr+='</tr>';
@@ -213,10 +213,10 @@
 	}
 
 	document.getElementById("whos_rec").addEventListener("change", function(e) {
-		console.log(this.value);
-		console.log(this.value.substring(0, this.value.length-2));
+		// console.log(this.value);
+		// console.log(this.value.substring(0, this.value.length-2));
 		// console.log(e);
-		showOnly(this.value.substring(0, this.value.length-2))
+		showOnly(this.value);
 
 	}, false);
 
